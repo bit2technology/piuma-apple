@@ -1,2 +1,3 @@
-# piuma-apple
-REST client for iOS
+# Piuma
+
+**This is a work in progress!**
