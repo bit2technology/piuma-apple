@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4B593540212DEC3C00B22010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59353F212DEC3C00B22010 /* AppDelegate.swift */; };
-		4B593542212DEC3C00B22010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593541212DEC3C00B22010 /* ViewController.swift */; };
 		4B593545212DEC3C00B22010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B593543212DEC3C00B22010 /* Main.storyboard */; };
 		4B593547212DEC3D00B22010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B593546212DEC3D00B22010 /* Assets.xcassets */; };
 		4B59354A212DEC3D00B22010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B593548212DEC3D00B22010 /* LaunchScreen.storyboard */; };
-		4B593558212E0DDB00B22010 /* PiumaCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B59355B212E0DDB00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
 		4B59355C212E0DDB00B22010 /* PiumaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B593568212E0F1E00B22010 /* PiumaCoreTests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */; };
 		4B59356A212E0F1E00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
+		4B593571212E131200B22010 /* Hello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593570212E131200B22010 /* Hello.swift */; };
+		4B593573212E135200B22010 /* HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593572212E135200B22010 /* HelloTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,17 +52,16 @@
 /* Begin PBXFileReference section */
 		4B59353C212DEC3C00B22010 /* Piuma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piuma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B59353F212DEC3C00B22010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4B593541212DEC3C00B22010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B593544212DEC3C00B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B593546212DEC3D00B22010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B593549212DEC3D00B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B59354B212DEC3D00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B593554212E0DDB00B22010 /* PiumaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PiumaCore_iOS.h; sourceTree = "<group>"; };
 		4B593557212E0DDB00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiumaCoreTests_iOS.swift; sourceTree = "<group>"; };
 		4B593569212E0F1E00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B593570212E131200B22010 /* Hello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello.swift; sourceTree = "<group>"; };
+		4B593572212E135200B22010 /* HelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloTests.swift; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				4B59353F212DEC3C00B22010 /* AppDelegate.swift */,
-				4B593541212DEC3C00B22010 /* ViewController.swift */,
 				4B593543212DEC3C00B22010 /* Main.storyboard */,
 				4B593546212DEC3D00B22010 /* Assets.xcassets */,
 				4B593548212DEC3D00B22010 /* LaunchScreen.storyboard */,
@@ -121,7 +118,7 @@
 		4B593555212E0DDB00B22010 /* PiumaCore */ = {
 			isa = PBXGroup;
 			children = (
-				4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */,
+				4B593570212E131200B22010 /* Hello.swift */,
 				4B593557212E0DDB00B22010 /* Info.plist */,
 			);
 			path = PiumaCore;
@@ -130,7 +127,7 @@
 		4B593566212E0F1E00B22010 /* PiumaCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */,
+				4B593572212E135200B22010 /* HelloTests.swift */,
 				4B593569212E0F1E00B22010 /* Info.plist */,
 			);
 			path = PiumaCoreTests;
@@ -163,7 +160,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B593558212E0DDB00B22010 /* PiumaCore_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +236,11 @@
 					};
 					4B593553212E0DDB00B22010 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					4B593564212E0F1E00B22010 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -298,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B593542212DEC3C00B22010 /* ViewController.swift in Sources */,
 				4B593540212DEC3C00B22010 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B593571212E131200B22010 /* Hello.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B593568212E0F1E00B22010 /* PiumaCoreTests_iOS.swift in Sources */,
+				4B593573212E135200B22010 /* HelloTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +354,7 @@
 		4B59354C212DEC3D00B22010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -428,6 +427,7 @@
 		4B59354D212DEC3D00B22010 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -652,6 +652,7 @@
 		4B59356E212E0F1E00B22010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -724,6 +725,7 @@
 		4B59356F212E0F1E00B22010 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
