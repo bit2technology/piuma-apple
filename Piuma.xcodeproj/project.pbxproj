@@ -13,10 +13,10 @@
 		4B593547212DEC3D00B22010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B593546212DEC3D00B22010 /* Assets.xcassets */; };
 		4B59354A212DEC3D00B22010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B593548212DEC3D00B22010 /* LaunchScreen.storyboard */; };
 		4B593558212E0DDB00B22010 /* PiumaCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B59355B212E0DDB00B22010 /* PiumaCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; };
-		4B59355C212E0DDB00B22010 /* PiumaCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B59355B212E0DDB00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
+		4B59355C212E0DDB00B22010 /* PiumaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B593568212E0F1E00B22010 /* PiumaCoreTests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */; };
-		4B59356A212E0F1E00B22010 /* PiumaCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; };
+		4B59356A212E0F1E00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4B59355C212E0DDB00B22010 /* PiumaCore_iOS.framework in Embed Frameworks */,
+				4B59355C212E0DDB00B22010 /* PiumaCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,14 +51,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B59353C212DEC3C00B22010 /* Piuma-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Piuma-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B59353C212DEC3C00B22010 /* Piuma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piuma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B59353F212DEC3C00B22010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B593541212DEC3C00B22010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B593544212DEC3C00B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B593546212DEC3D00B22010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B593549212DEC3D00B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B59354B212DEC3D00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B593554212E0DDB00B22010 /* PiumaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PiumaCore_iOS.h; sourceTree = "<group>"; };
 		4B593557212E0DDB00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B59355B212E0DDB00B22010 /* PiumaCore_iOS.framework in Frameworks */,
+				4B59355B212E0DDB00B22010 /* PiumaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B59356A212E0F1E00B22010 /* PiumaCore_iOS.framework in Frameworks */,
+				4B59356A212E0F1E00B22010 /* PiumaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +98,8 @@
 		4B59353D212DEC3C00B22010 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B59353C212DEC3C00B22010 /* Piuma-iOS.app */,
-				4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */,
+				4B59353C212DEC3C00B22010 /* Piuma.app */,
+				4B593554212E0DDB00B22010 /* PiumaCore.framework */,
 				4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */,
 			);
 			name = Products;
@@ -118,22 +118,22 @@
 			path = "Piuma-iOS";
 			sourceTree = "<group>";
 		};
-		4B593555212E0DDB00B22010 /* PiumaCore-iOS */ = {
+		4B593555212E0DDB00B22010 /* PiumaCore */ = {
 			isa = PBXGroup;
 			children = (
 				4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */,
 				4B593557212E0DDB00B22010 /* Info.plist */,
 			);
-			path = "PiumaCore-iOS";
+			path = PiumaCore;
 			sourceTree = "<group>";
 		};
-		4B593566212E0F1E00B22010 /* PiumaCoreTests-iOS */ = {
+		4B593566212E0F1E00B22010 /* PiumaCoreTests */ = {
 			isa = PBXGroup;
 			children = (
 				4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */,
 				4B593569212E0F1E00B22010 /* Info.plist */,
 			);
-			path = "PiumaCoreTests-iOS";
+			path = PiumaCoreTests;
 			sourceTree = "<group>";
 		};
 		4B613C7A212DE4410069C73C = {
@@ -141,8 +141,8 @@
 			children = (
 				4B613C81212DE6BD0069C73C /* Support */,
 				4B59353E212DEC3C00B22010 /* Piuma-iOS */,
-				4B593555212E0DDB00B22010 /* PiumaCore-iOS */,
-				4B593566212E0F1E00B22010 /* PiumaCoreTests-iOS */,
+				4B593555212E0DDB00B22010 /* PiumaCore */,
+				4B593566212E0F1E00B22010 /* PiumaCoreTests */,
 				4B59353D212DEC3C00B22010 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			);
 			name = "Piuma-iOS";
 			productName = "Piuma-iOS";
-			productReference = 4B59353C212DEC3C00B22010 /* Piuma-iOS.app */;
+			productReference = 4B59353C212DEC3C00B22010 /* Piuma.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4B593553212E0DDB00B22010 /* PiumaCore-iOS */ = {
@@ -204,7 +204,7 @@
 			);
 			name = "PiumaCore-iOS";
 			productName = "PiumaCore-iOS";
-			productReference = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */;
+			productReference = 4B593554212E0DDB00B22010 /* PiumaCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4B593564212E0F1E00B22010 /* PiumaCoreTests-iOS */ = {
@@ -408,7 +408,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Piuma-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,8 +415,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.Piuma-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma;
+				PRODUCT_NAME = Piuma;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -475,15 +474,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Piuma-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.Piuma-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma;
+				PRODUCT_NAME = Piuma;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -497,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -551,9 +550,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "PiumaCore-iOS/Info.plist";
+				INFOPLIST_FILE = PiumaCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,8 +560,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCore-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.core;
+				PRODUCT_NAME = PiumaCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -579,6 +577,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -627,9 +626,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "PiumaCore-iOS/Info.plist";
+				INFOPLIST_FILE = PiumaCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,8 +635,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCore-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.core;
+				PRODUCT_NAME = PiumaCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -704,8 +702,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "PiumaCoreTests-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = PiumaCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -714,7 +711,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCoreTests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.core.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -771,8 +768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "PiumaCoreTests-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = PiumaCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,7 +776,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCoreTests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.core.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -794,12 +790,14 @@
 		4B613C7F212DE4410069C73C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
 		4B613C80212DE4410069C73C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
