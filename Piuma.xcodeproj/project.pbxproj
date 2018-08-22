@@ -3,14 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
+
+/* Begin PBXFileReference section */
+		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		4B613C7A212DE4410069C73C = {
 			isa = PBXGroup;
 			children = (
+				4B613C81212DE6BD0069C73C /* Support */,
 			);
+			sourceTree = "<group>";
+		};
+		4B613C81212DE6BD0069C73C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4B613C82212DE6E20069C73C /* .gitignore */,
+				4B613C83212DE6EB0069C73C /* README.md */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -20,9 +35,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Bit2 Technology";
 			};
 			buildConfigurationList = 4B613C7E212DE4410069C73C /* Build configuration list for PBXProject "Piuma" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
