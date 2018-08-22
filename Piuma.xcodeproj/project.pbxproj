@@ -15,10 +15,19 @@
 		4B593558212E0DDB00B22010 /* PiumaCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B59355B212E0DDB00B22010 /* PiumaCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; };
 		4B59355C212E0DDB00B22010 /* PiumaCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B593568212E0F1E00B22010 /* PiumaCoreTests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */; };
+		4B59356A212E0F1E00B22010 /* PiumaCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4B593559212E0DDB00B22010 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B613C7B212DE4410069C73C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B593553212E0DDB00B22010;
+			remoteInfo = "PiumaCore-iOS";
+		};
+		4B59356B212E0F1E00B22010 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4B613C7B212DE4410069C73C /* Project object */;
 			proxyType = 1;
@@ -52,6 +61,9 @@
 		4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593556212E0DDB00B22010 /* PiumaCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PiumaCore_iOS.h; sourceTree = "<group>"; };
 		4B593557212E0DDB00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiumaCoreTests_iOS.swift; sourceTree = "<group>"; };
+		4B593569212E0F1E00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +84,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B593562212E0F1E00B22010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B59356A212E0F1E00B22010 /* PiumaCore_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +100,7 @@
 			children = (
 				4B59353C212DEC3C00B22010 /* Piuma-iOS.app */,
 				4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */,
+				4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,12 +127,22 @@
 			path = "PiumaCore-iOS";
 			sourceTree = "<group>";
 		};
+		4B593566212E0F1E00B22010 /* PiumaCoreTests-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4B593567212E0F1E00B22010 /* PiumaCoreTests_iOS.swift */,
+				4B593569212E0F1E00B22010 /* Info.plist */,
+			);
+			path = "PiumaCoreTests-iOS";
+			sourceTree = "<group>";
+		};
 		4B613C7A212DE4410069C73C = {
 			isa = PBXGroup;
 			children = (
 				4B613C81212DE6BD0069C73C /* Support */,
 				4B59353E212DEC3C00B22010 /* Piuma-iOS */,
 				4B593555212E0DDB00B22010 /* PiumaCore-iOS */,
+				4B593566212E0F1E00B22010 /* PiumaCoreTests-iOS */,
 				4B59353D212DEC3C00B22010 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -176,6 +207,24 @@
 			productReference = 4B593554212E0DDB00B22010 /* PiumaCore_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		4B593564212E0F1E00B22010 /* PiumaCoreTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B59356D212E0F1E00B22010 /* Build configuration list for PBXNativeTarget "PiumaCoreTests-iOS" */;
+			buildPhases = (
+				4B593561212E0F1E00B22010 /* Sources */,
+				4B593562212E0F1E00B22010 /* Frameworks */,
+				4B593563212E0F1E00B22010 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B59356C212E0F1E00B22010 /* PBXTargetDependency */,
+			);
+			name = "PiumaCoreTests-iOS";
+			productName = "PiumaCoreTests-iOS";
+			productReference = 4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +239,9 @@
 						CreatedOnToolsVersion = 10.0;
 					};
 					4B593553212E0DDB00B22010 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					4B593564212E0F1E00B22010 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -209,6 +261,7 @@
 			targets = (
 				4B59353B212DEC3C00B22010 /* Piuma-iOS */,
 				4B593553212E0DDB00B22010 /* PiumaCore-iOS */,
+				4B593564212E0F1E00B22010 /* PiumaCoreTests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +278,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4B593552212E0DDB00B22010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B593563212E0F1E00B22010 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,6 +310,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B593561212E0F1E00B22010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B593568212E0F1E00B22010 /* PiumaCoreTests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -257,6 +325,11 @@
 			isa = PBXTargetDependency;
 			target = 4B593553212E0DDB00B22010 /* PiumaCore-iOS */;
 			targetProxy = 4B593559212E0DDB00B22010 /* PBXContainerItemProxy */;
+		};
+		4B59356C212E0F1E00B22010 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B593553212E0DDB00B22010 /* PiumaCore-iOS */;
+			targetProxy = 4B59356B212E0F1E00B22010 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -578,6 +651,146 @@
 			};
 			name = Release;
 		};
+		4B59356E212E0F1E00B22010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2CPJD7ENY9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PiumaCoreTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCoreTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B59356F212E0F1E00B22010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2CPJD7ENY9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PiumaCoreTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "technology.bit2.PiumaCoreTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		4B613C7F212DE4410069C73C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -607,6 +820,15 @@
 			buildConfigurations = (
 				4B59355E212E0DDB00B22010 /* Debug */,
 				4B59355F212E0DDB00B22010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B59356D212E0F1E00B22010 /* Build configuration list for PBXNativeTarget "PiumaCoreTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B59356E212E0F1E00B22010 /* Debug */,
+				4B59356F212E0F1E00B22010 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
