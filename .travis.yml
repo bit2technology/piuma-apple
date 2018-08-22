@@ -1,0 +1,9 @@
+language: swift
+osx_image: xcode10
+xcode_project: Piuma.xcodeproj
+matrix:
+    include:
+    -   xcode_scheme: PiumaCore-iOS
+        xcode_destination: platform=iOS Simulator,OS=11.0,name=iPhone 5s
+    -   xcode_scheme: PiumaCore-macOS
+        xcode_destination: platform=macOS
