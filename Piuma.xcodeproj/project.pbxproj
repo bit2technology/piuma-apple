@@ -107,6 +107,7 @@
 		4B59358F212E1C7500B22010 /* PiumaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593592212E1C7600B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5935A0212E1CF100B22010 /* PiumaCoreTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5935AD212E22AA00B22010 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				4B613C82212DE6E20069C73C /* .gitignore */,
+				4B5935AD212E22AA00B22010 /* .travis.yml */,
 				4B613C83212DE6EB0069C73C /* README.md */,
 			);
 			name = Support;

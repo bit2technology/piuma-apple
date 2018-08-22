@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B59358E212E1C7500B22010"
-               BuildableName = "PiumaCore_macOS.framework"
+               BuildableName = "PiumaCore.framework"
                BlueprintName = "PiumaCore-macOS"
                ReferencedContainer = "container:Piuma.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4B59359F212E1CF100B22010"
+               BuildableName = "PiumaCoreTests-macOS.xctest"
+               BlueprintName = "PiumaCoreTests-macOS"
+               ReferencedContainer = "container:Piuma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4B59358E212E1C7500B22010"
+            BuildableName = "PiumaCore.framework"
+            BlueprintName = "PiumaCore-macOS"
+            ReferencedContainer = "container:Piuma.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -46,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B59358E212E1C7500B22010"
-            BuildableName = "PiumaCore_macOS.framework"
+            BuildableName = "PiumaCore.framework"
             BlueprintName = "PiumaCore-macOS"
             ReferencedContainer = "container:Piuma.xcodeproj">
          </BuildableReference>
@@ -64,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B59358E212E1C7500B22010"
-            BuildableName = "PiumaCore_macOS.framework"
+            BuildableName = "PiumaCore.framework"
             BlueprintName = "PiumaCore-macOS"
             ReferencedContainer = "container:Piuma.xcodeproj">
          </BuildableReference>
