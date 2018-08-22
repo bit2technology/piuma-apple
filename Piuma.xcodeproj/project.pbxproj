@@ -221,11 +221,11 @@
 		4B613C7A212DE4410069C73C = {
 			isa = PBXGroup;
 			children = (
-				4B613C81212DE6BD0069C73C /* Support */,
 				4B59353E212DEC3C00B22010 /* Piuma-iOS */,
+				4B593579212E18C400B22010 /* Piuma-macOS */,
 				4B593555212E0DDB00B22010 /* PiumaCore */,
 				4B593566212E0F1E00B22010 /* PiumaCoreTests */,
-				4B593579212E18C400B22010 /* Piuma-macOS */,
+				4B613C81212DE6BD0069C73C /* Support */,
 				4B59353D212DEC3C00B22010 /* Products */,
 			);
 			sourceTree = "<group>";
