@@ -7,15 +7,22 @@
 //
 
 import UIKit
-import PiumaCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print(Hello.test)
+    func application(_ app: UIApplication, open inputURL: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        guard inputURL.isFileURL else { return false }
+        let documentBrowserViewController = window!.rootViewController as! DocumentBrowserViewController
+        documentBrowserViewController.revealDocument(at: inputURL, importIfNeeded: true) { (revealedDocumentURL, error) in
+            if let error = error {
+                documentBrowserViewController.present(error: error)
+                return
+            }
+            documentBrowserViewController.securelyPresent(documentAt: revealedDocumentURL!)
+        }
         return true
     }
 }

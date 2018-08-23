@@ -28,6 +28,9 @@
 		4B5935B6212ECB5500B22010 /* RequestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* RequestNode.swift */; };
 		4B5935B8212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
 		4B5935B9212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
+		4B5935BD212EF30800B22010 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */; };
+		4B5935BE212EF30800B22010 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935BB212EF30800B22010 /* Document.swift */; };
+		4B5935BF212EF30800B22010 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935BC212EF30800B22010 /* DocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		4B5935B1212ECB5400B22010 /* DocumentCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCore.swift; sourceTree = "<group>"; };
 		4B5935B2212ECB5500B22010 /* RequestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNode.swift; sourceTree = "<group>"; };
 		4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCoreTests.swift; sourceTree = "<group>"; };
+		4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		4B5935BB212EF30800B22010 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		4B5935BC212EF30800B22010 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				4B59353F212DEC3C00B22010 /* AppDelegate.swift */,
+				4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */,
+				4B5935BC212EF30800B22010 /* DocumentViewController.swift */,
+				4B5935BB212EF30800B22010 /* Document.swift */,
 				4B593543212DEC3C00B22010 /* Main.storyboard */,
 				4B593546212DEC3D00B22010 /* Assets.xcassets */,
 				4B593548212DEC3D00B22010 /* LaunchScreen.storyboard */,
@@ -487,7 +496,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5935BD212EF30800B22010 /* DocumentBrowserViewController.swift in Sources */,
+				4B5935BF212EF30800B22010 /* DocumentViewController.swift in Sources */,
 				4B593540212DEC3C00B22010 /* AppDelegate.swift in Sources */,
+				4B5935BE212EF30800B22010 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
