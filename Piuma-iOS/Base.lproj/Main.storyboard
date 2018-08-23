@@ -10,19 +10,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Document Browser View Controller-->
         <scene sceneID="Ope-dA-chC">
             <objects>
-                <viewController id="cqN-ML-7dK" sceneMemberID="viewController">
+                <viewController id="cqN-ML-7dK" customClass="DocumentBrowserViewController" customModule="Piuma" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xnc-k5-iBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Vq6-ww-sKn"/>
                     </view>
+                    <connections>
+                        <segue destination="fgc-Tx-9zB" kind="presentation" identifier="PresentDocument" id="ihb-lR-cWg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNr-3H-Lyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="90"/>
+        </scene>
+        <!--Document View Controller-->
+        <scene sceneID="0yd-ve-19H">
+            <objects>
+                <splitViewController id="fgc-Tx-9zB" customClass="DocumentViewController" customModule="Piuma" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="QwJ-Ar-KBg" kind="relationship" relationship="masterViewController" id="VOc-ib-lte"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="21p-Rd-fVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="90"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2hz-1h-scQ">
+            <objects>
+                <navigationController id="QwJ-Ar-KBg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="UHc-d2-wYB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hGb-nd-hCZ" kind="relationship" relationship="rootViewController" id="q5K-g8-NfI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rz4-ge-9Rx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="90"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="uaH-dR-5IF">
+            <objects>
+                <tableViewController id="hGb-nd-hCZ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tDq-de-5LU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hGb-nd-hCZ" id="paT-2K-hcD"/>
+                            <outlet property="delegate" destination="hGb-nd-hCZ" id="Y4n-PN-mEJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="J8o-AA-p7l"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4m7-9C-cqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2343" y="90"/>
         </scene>
     </scenes>
 </document>
