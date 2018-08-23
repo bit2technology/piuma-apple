@@ -14,8 +14,6 @@
 		4B59355B212E0DDB00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
 		4B59355C212E0DDB00B22010 /* PiumaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B59356A212E0F1E00B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B593554212E0DDB00B22010 /* PiumaCore.framework */; };
-		4B593571212E131200B22010 /* Hello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593570212E131200B22010 /* Hello.swift */; };
-		4B593573212E135200B22010 /* HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593572212E135200B22010 /* HelloTests.swift */; };
 		4B59357B212E18C400B22010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59357A212E18C400B22010 /* AppDelegate.swift */; };
 		4B59357D212E18C400B22010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59357C212E18C400B22010 /* ViewController.swift */; };
 		4B59357F212E18C400B22010 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59357E212E18C400B22010 /* Document.swift */; };
@@ -24,8 +22,12 @@
 		4B593596212E1C7600B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B59358F212E1C7500B22010 /* PiumaCore.framework */; };
 		4B593597212E1C7600B22010 /* PiumaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B59358F212E1C7500B22010 /* PiumaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B5935A5212E1CF100B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B59358F212E1C7500B22010 /* PiumaCore.framework */; };
-		4B5935AB212E1E2500B22010 /* Hello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593570212E131200B22010 /* Hello.swift */; };
-		4B5935AC212E1E2A00B22010 /* HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B593572212E135200B22010 /* HelloTests.swift */; };
+		4B5935B3212ECB5500B22010 /* DocumentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B1212ECB5400B22010 /* DocumentCore.swift */; };
+		4B5935B4212ECB5500B22010 /* DocumentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B1212ECB5400B22010 /* DocumentCore.swift */; };
+		4B5935B5212ECB5500B22010 /* RequestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* RequestNode.swift */; };
+		4B5935B6212ECB5500B22010 /* RequestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* RequestNode.swift */; };
+		4B5935B8212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
+		4B5935B9212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +96,6 @@
 		4B593554212E0DDB00B22010 /* PiumaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593565212E0F1E00B22010 /* PiumaCoreTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593569212E0F1E00B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B593570212E131200B22010 /* Hello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello.swift; sourceTree = "<group>"; };
-		4B593572212E135200B22010 /* HelloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloTests.swift; sourceTree = "<group>"; };
 		4B593578212E18C400B22010 /* Piuma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piuma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B59357A212E18C400B22010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B59357C212E18C400B22010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +108,9 @@
 		4B593592212E1C7600B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5935A0212E1CF100B22010 /* PiumaCoreTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5935AD212E22AA00B22010 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		4B5935B1212ECB5400B22010 /* DocumentCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCore.swift; sourceTree = "<group>"; };
+		4B5935B2212ECB5500B22010 /* RequestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNode.swift; sourceTree = "<group>"; };
+		4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCoreTests.swift; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,7 +193,8 @@
 		4B593555212E0DDB00B22010 /* PiumaCore */ = {
 			isa = PBXGroup;
 			children = (
-				4B593570212E131200B22010 /* Hello.swift */,
+				4B5935B1212ECB5400B22010 /* DocumentCore.swift */,
+				4B5935B2212ECB5500B22010 /* RequestNode.swift */,
 				4B593592212E1C7600B22010 /* Info.plist */,
 			);
 			path = PiumaCore;
@@ -199,7 +203,7 @@
 		4B593566212E0F1E00B22010 /* PiumaCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				4B593572212E135200B22010 /* HelloTests.swift */,
+				4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */,
 				4B593569212E0F1E00B22010 /* Info.plist */,
 			);
 			path = PiumaCoreTests;
@@ -397,9 +401,11 @@
 					};
 					4B59358E212E1C7500B22010 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					4B59359F212E1CF100B22010 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -489,7 +495,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B593571212E131200B22010 /* Hello.swift in Sources */,
+				4B5935B3212ECB5500B22010 /* DocumentCore.swift in Sources */,
+				4B5935B5212ECB5500B22010 /* RequestNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B593573212E135200B22010 /* HelloTests.swift in Sources */,
+				4B5935B8212EE76300B22010 /* DocumentCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +522,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B5935AB212E1E2500B22010 /* Hello.swift in Sources */,
+				4B5935B4212ECB5500B22010 /* DocumentCore.swift in Sources */,
+				4B5935B6212ECB5500B22010 /* RequestNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B5935AC212E1E2A00B22010 /* HelloTests.swift in Sources */,
+				4B5935B9212EE76300B22010 /* DocumentCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
