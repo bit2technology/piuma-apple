@@ -10,14 +10,22 @@ import UIKit
 
 class DocumentViewController: UISplitViewController {
 
+    @IBOutlet weak var closeButton: UIBarButtonItem!
+
     var document: Document! {
         didSet {
-            // FIXME: Test
-            let masterNavigationController = viewControllers.first! as! UINavigationController
-            let viewController = masterNavigationController.viewControllers.first!
-            viewController.navigationItem.title = document.localizedName
-            viewController.navigationItem.leftBarButtonItem = closeBarButtonItem()
+            rootFolderTableViewController.folder = document.core.rootFolder
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        rootFolderTableViewController.navigationItem.leftBarButtonItem = closeButton
+    }
+
+    private var rootFolderTableViewController: FolderTableViewController {
+        let masterNavigationController = viewControllers[0] as! UINavigationController
+        return masterNavigationController.viewControllers[0] as! FolderTableViewController
     }
 
     private func present(error: Error?) {
@@ -25,11 +33,7 @@ class DocumentViewController: UISplitViewController {
         fatalError("Error in document screen: \(error.debugDescription)")
     }
 
-    private func closeBarButtonItem() -> UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeAction))
-    }
-
-    @objc private func closeAction() {
+    @IBAction private func closeAction() {
         close()
     }
 

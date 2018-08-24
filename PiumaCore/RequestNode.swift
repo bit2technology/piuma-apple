@@ -26,6 +26,11 @@ public final class RequestNode: Codable {
         self.name = name
     }
 
+    public func addChild(kind: Kind, name: String) { // FIXME: Improve
+        if children == nil { children = [] }
+        children!.append(RequestNode(kind: kind, name: name))
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id, kind, name, children, url
     }
