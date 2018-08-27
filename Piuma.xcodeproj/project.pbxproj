@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B54BF8C213415A2004F945E /* FolderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54BF8B213415A2004F945E /* FolderTableViewController.swift */; };
+		4B54BF8E213415B1004F945E /* UIAlertController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54BF8D213415B1004F945E /* UIAlertController+TextField.swift */; };
 		4B593540212DEC3C00B22010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59353F212DEC3C00B22010 /* AppDelegate.swift */; };
 		4B593545212DEC3C00B22010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B593543212DEC3C00B22010 /* Main.storyboard */; };
 		4B593547212DEC3D00B22010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B593546212DEC3D00B22010 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B54BF8B213415A2004F945E /* FolderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewController.swift; sourceTree = "<group>"; };
+		4B54BF8D213415B1004F945E /* UIAlertController+TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+TextField.swift"; sourceTree = "<group>"; };
 		4B59353C212DEC3C00B22010 /* Piuma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piuma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B59353F212DEC3C00B22010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B593544212DEC3C00B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				4B59353F212DEC3C00B22010 /* AppDelegate.swift */,
 				4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */,
 				4B5935BC212EF30800B22010 /* DocumentViewController.swift */,
+				4B54BF8B213415A2004F945E /* FolderTableViewController.swift */,
+				4B54BF8D213415B1004F945E /* UIAlertController+TextField.swift */,
 				4B5935BB212EF30800B22010 /* Document.swift */,
 				4B593543212DEC3C00B22010 /* Main.storyboard */,
 				4B593546212DEC3D00B22010 /* Assets.xcassets */,
@@ -496,8 +502,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B54BF8E213415B1004F945E /* UIAlertController+TextField.swift in Sources */,
 				4B5935BD212EF30800B22010 /* DocumentBrowserViewController.swift in Sources */,
 				4B5935BF212EF30800B22010 /* DocumentViewController.swift in Sources */,
+				4B54BF8C213415A2004F945E /* FolderTableViewController.swift in Sources */,
 				4B593540212DEC3C00B22010 /* AppDelegate.swift in Sources */,
 				4B5935BE212EF30800B22010 /* Document.swift in Sources */,
 			);
