@@ -6,4 +6,4 @@ matrix:
         script: xcodebuild -scheme PiumaCore-iOS -destination 'platform=iOS Simulator,name=iPhone X' test
     -   name: PiumaCore-macOS
         script: xcodebuild -scheme PiumaCore-macOS -destination 'platform=macOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
-after_success: <(curl -s https://codecov.io/bash)
+after_success: bash <(curl -s https://codecov.io/bash)
