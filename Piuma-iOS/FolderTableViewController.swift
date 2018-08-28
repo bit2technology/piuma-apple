@@ -1,8 +1,6 @@
 import UIKit
 import PiumaCore
 
-// MARK: Properties
-
 /// Displays a single folder RequestNode.
 class FolderTableViewController: UITableViewController {
 
@@ -11,11 +9,17 @@ class FolderTableViewController: UITableViewController {
         didSet {
             navigationItem.title = folder.name
             folder.observer = self
+            NotificationCenter.default.addObserver(self, selector: #selector(updateUndoRedoButtons), name: NSNotification.Name.NSUndoManagerCheckpoint, object: undoManager)
         }
     }
-}
 
-// MARK: Node Creation
+    @IBOutlet private weak var undoButton: UIBarButtonItem!
+    @IBOutlet private weak var redoButton: UIBarButtonItem!
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
 
 extension FolderTableViewController {
 
@@ -61,8 +65,6 @@ extension FolderTableViewController {
     }
 }
 
-// MARK: Node Delete
-
 extension FolderTableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -75,7 +77,21 @@ extension FolderTableViewController {
     }
 }
 
-// MARK: RequestNodeObserver
+extension FolderTableViewController {
+
+    @IBAction private func performUndo() {
+        undoManager!.undo()
+    }
+
+    @IBAction private func performRedo() {
+        undoManager!.redo()
+    }
+
+    @objc private func updateUndoRedoButtons() {
+        undoButton.isEnabled = undoManager!.canUndo
+        redoButton.isEnabled = undoManager!.canRedo
+    }
+}
 
 extension FolderTableViewController: RequestNodeObserver {
 
@@ -104,8 +120,6 @@ extension FolderTableViewController: RequestNodeObserver {
     }
 }
 
-// MARK: UITableViewController
-
 extension FolderTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,7 +132,7 @@ extension FolderTableViewController {
         case .request:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath)
             cell.textLabel!.text = node.name
-            cell.accessoryType = splitViewController!.isCollapsed ? .disclosureIndicator : .none
+            cell.accessoryType = splitViewController?.isCollapsed == false ? .none : .disclosureIndicator
             return cell
         case .folder:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FolderCell", for: indexPath)
@@ -128,13 +142,12 @@ extension FolderTableViewController {
     }
 }
 
-// MARK: UIViewController
-
 extension FolderTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem?.isSpringLoaded = true
+        updateUndoRedoButtons()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -144,12 +157,14 @@ extension FolderTableViewController {
     }
 }
 
-// MARK: UIResponder
-
 extension FolderTableViewController {
 
     override var canBecomeFirstResponder: Bool {
         return true
+    }
+
+    override var undoManager: UndoManager? {
+        return folder.document?.undoManager
     }
 
     override var keyCommands: [UIKeyCommand]? {

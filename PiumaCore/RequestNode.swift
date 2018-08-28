@@ -12,7 +12,7 @@ public final class RequestNode: Codable {
     /// Reference to the parent node.
     public private(set) weak var parent: RequestNode?
     /// Reference to the document, if any.
-    internal weak var document: DocumentCore?
+    public internal(set) weak var document: DocumentCore?
     /// Observer of changes in this node.
     public weak var observer: RequestNodeObserver?
 

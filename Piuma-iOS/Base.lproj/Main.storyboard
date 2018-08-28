@@ -122,8 +122,16 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem systemItem="undo" id="jVr-HH-Y6g"/>
-                        <barButtonItem systemItem="redo" id="Zqs-nf-HhI"/>
+                        <barButtonItem systemItem="undo" id="jVr-HH-Y6g">
+                            <connections>
+                                <action selector="performUndo" destination="hGb-nd-hCZ" id="ukg-o6-RWP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="redo" id="Zqs-nf-HhI">
+                            <connections>
+                                <action selector="performRedo" destination="hGb-nd-hCZ" id="jUh-k5-BXF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="4Gd-GT-lP6"/>
                         <barButtonItem title="Request" id="Zef-tB-3mR">
                             <connections>
@@ -138,6 +146,10 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Folder" id="J8o-AA-p7l"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="redoButton" destination="Zqs-nf-HhI" id="GpP-i9-GLZ"/>
+                        <outlet property="undoButton" destination="jVr-HH-Y6g" id="bfF-zE-Wgb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4m7-9C-cqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
