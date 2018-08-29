@@ -12,54 +12,37 @@ class FolderTableViewController: UITableViewController {
         }
     }
 
+    /// Index of a node in process of being renamed.
+    private var renamingNodeIndex: Int? {
+        didSet { if let oldIndex = oldValue { tableView.reloadRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic) } }
+    }
+
     /// Undo button in toolbar.
     @IBOutlet private weak var undoButton: UIBarButtonItem!
     /// Redo button in toolbar.
     @IBOutlet private weak var redoButton: UIBarButtonItem!
 }
 
-#warning("Embed node creation in table view!!!")
 extension FolderTableViewController {
 
     /// Create a new request.
     @IBAction private func createRequest() {
-        presentCreateNodeAlert(kind: .request)
+        presentCreateNodeFlow(kind: .request)
     }
 
     /// Create a new folder.
     @IBAction private func createFolder() {
-        presentCreateNodeAlert(kind: .folder)
+        presentCreateNodeFlow(kind: .folder)
     }
 
-    /// Presents an alert to create a new node. This alert contains a text field to choose the node name.
-    private func presentCreateNodeAlert(kind: RequestNode.Kind) {
-
-        let currentFolder = folder!
-
-        let title: String
-        switch kind {
-        case .request:
-            title = NSLocalizedString("FolderTableViewController.presentCreateNodeAlert.title.request", value: "New Request", comment: "Alert title to create a new request.")
-        case .folder:
-            title = NSLocalizedString("FolderTableViewController.presentCreateNodeAlert.title.folder", value: "New Folder", comment: "Alert title to create a new folder.")
-        }
-        let cancelButtonTitle = NSLocalizedString("FolderTableViewController.presentCreateNodeAlert.cancelButtonTitle", value: "Cancel", comment: "Button title to cancel creation of either a request or a folder.")
-        let okButtonTitle = NSLocalizedString("FolderTableViewController.presentCreateNodeAlert.okButtonTitle", value: "Create", comment: "Button title to confirm creation of either a request or a folder.")
-        func configureTextField(_ textField: UITextField) {
-            textField.placeholder = NSLocalizedString("FolderTableViewController.presentCreateNodeAlert.textFieldPlaceholder", value: "Name", comment: "Placeholder to the text field to choose the name of the new request or folder.")
-            textField.returnKeyType = .done
-            textField.enablesReturnKeyAutomatically = true
-        }
-        func completion(result: UIAlertController.TextInputResult) {
-            switch result {
-            case .ok(let name):
-                currentFolder.insertChild(RequestNode(kind: kind, name: name), at: nil)
-            case .cancel:
-                break
-            }
-        }
-
-        present(UIAlertController(title: title, cancelButtonTitle: cancelButtonTitle, okButtonTitle: okButtonTitle, validate: .nonEmpty, textFieldConfiguration: configureTextField, onCompletion: completion), animated: true)
+    /// Presents the UI flow to create a new node.
+    private func presentCreateNodeFlow(kind: RequestNode.Kind) {
+        tableView.beginUpdates()
+        renamingNodeIndex = folder.newChild(kind: kind)
+        tableView.endUpdates()
+        let indexPath = IndexPath(row: renamingNodeIndex!, section:0)
+        tableView.scrollToRow(at: indexPath, at: .none, animated: false)
+        (tableView.cellForRow(at: indexPath) as! NodeRenamingTableViewCell).nameField.selectAll(nil)
     }
 }
 
@@ -68,7 +51,7 @@ extension FolderTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            folder.removeChild(at: indexPath.row)
+            folder.deleteChild(at: indexPath.row)
         case .insert, .none:
             break
         }
@@ -77,14 +60,17 @@ extension FolderTableViewController {
 
 extension FolderTableViewController {
 
+    /// Undo last action.
     @IBAction private func performUndo() {
         undoManager!.undo()
     }
 
+    /// Redo last undone action.
     @IBAction private func performRedo() {
         undoManager!.redo()
     }
 
+    /// Update undo/redo buttons enabled state.
     @objc private func updateUndoRedoButtons() {
         undoButton.isEnabled = undoManager!.canUndo
         redoButton.isEnabled = undoManager!.canRedo
@@ -126,17 +112,37 @@ extension FolderTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let node = folder.children![indexPath.row]
+        if indexPath.row == renamingNodeIndex {
+            return cellForRenamingNode(node, indexPath: indexPath)
+        }
         switch node.kind {
         case .request:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath)
-            cell.textLabel!.text = node.name
-            cell.accessoryType = splitViewController?.isCollapsed == false ? .none : .disclosureIndicator
-            return cell
+            return cellForRequest(node, indexPath: indexPath)
         case .folder:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FolderCell", for: indexPath)
-            cell.textLabel!.text = node.name
-            return cell
+            return cellForFolder(node, indexPath: indexPath)
         }
+    }
+
+    /// Configure cell for renaming a node.
+    private func cellForRenamingNode(_ node: RequestNode, indexPath: IndexPath) -> NodeRenamingTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NodeRenamingCell", for: indexPath) as! NodeRenamingTableViewCell
+        cell.nameField.text = node.name
+        return cell
+    }
+
+    /// Configure cell for a request.
+    private func cellForRequest(_ node: RequestNode, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as! NodeTableViewCell
+        cell.nameLabel.text = node.name
+        cell.accessoryType = splitViewController?.isCollapsed == false ? .none : .disclosureIndicator
+        return cell
+    }
+
+    /// Configure cell for a folder.
+    private func cellForFolder(_ node: RequestNode, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FolderCell", for: indexPath) as! NodeTableViewCell
+        cell.nameLabel.text = node.name
+        return cell
     }
 }
 
@@ -176,9 +182,19 @@ extension FolderTableViewController {
     }
 
     override var keyCommands: [UIKeyCommand]? {
-        let createRequestCommand = UIKeyCommand(input: "n", modifierFlags: .command, action: #selector(createRequest), discoverabilityTitle: NSLocalizedString("FolderTableViewController.keyCommands.createRequestCommand", value: "New Request", comment: "Command title to create a new request."))
-        let createFolderCommand = UIKeyCommand(input: "n", modifierFlags: [.command, .shift], action: #selector(createFolder), discoverabilityTitle: NSLocalizedString("FolderTableViewController.keyCommands.folderRequestCommand", value: "New Folder", comment: "Command title to create a new folder."))
-        var keyCommands = [createRequestCommand, createFolderCommand]
+        return createNodeKeyCommands + undoRedoKeyCommands
+    }
+
+    /// Create request/folder keyboard shortcuts.
+    private var createNodeKeyCommands: [UIKeyCommand] {
+        let createRequestCommand = UIKeyCommand(input: "n", modifierFlags: .command, action: #selector(createRequest), discoverabilityTitle: NSLocalizedString("FolderTableViewController.createNodeKeyCommands.createRequestCommand", value: "New Request", comment: "Command title to create a new request."))
+        let createFolderCommand = UIKeyCommand(input: "n", modifierFlags: [.command, .shift], action: #selector(createFolder), discoverabilityTitle: NSLocalizedString("FolderTableViewController.createNodeKeyCommands.folderRequestCommand", value: "New Folder", comment: "Command title to create a new folder."))
+        return [createRequestCommand, createFolderCommand]
+    }
+
+    /// Undo/redo keyboard shortcuts if available.
+    private var undoRedoKeyCommands: [UIKeyCommand] {
+        var keyCommands: [UIKeyCommand] = []
         if undoManager!.canUndo {
             keyCommands.append(UIKeyCommand(input: "z", modifierFlags: [.command], action: #selector(performUndo), discoverabilityTitle: undoManager!.undoMenuItemTitle))
         }

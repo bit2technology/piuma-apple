@@ -22,11 +22,20 @@ public final class RequestNode: Codable {
     /// URL to request. Only available to requests.
     public var url: String?
 
-    /// Designated intializer.
-    public init(kind: Kind, name: String) {
+    /// Designated intializer. If no name is provided, it is used a default name for a node that was just created.
+    internal init(kind: Kind, name: String? = nil) {
         id = UUID()
         self.kind = kind
-        self.name = name
+        self.name = name ?? RequestNode.defaultName(for: kind)
+    }
+
+    private static func defaultName(for kind: Kind) -> String {
+        switch kind {
+        case .request:
+            return NSLocalizedString("RequestNode.defaultName.request", value: "New Request", comment: "Name of a request that was just created.")
+        case .folder:
+            return NSLocalizedString("RequestNode.defaultName.folder", value: "New Folder", comment: "Name of a folder that was just created.")
+        }
     }
 
     /// Codable keys.
@@ -118,44 +127,46 @@ public enum RequestNodeError: Error {
 
 extension RequestNode {
 
-    public func insertChild(_ child: RequestNode, at index: Int? = nil) {
-        insertChildWithoutActionName(child, at: index)
+    @discardableResult public func newChild(kind: Kind) -> Int {
+        if children == nil { children = [] }
+        let child = RequestNode(kind: kind)
+        let index = children!.endIndex
+        insertChild(child, at: index)
         let actionName: String
         switch child.kind {
         case .request:
-            actionName = NSLocalizedString("RequestNode.addChild.actionName.request", value: "Create Request", comment: "Name of the action of creating and adding a new request to a folder. Used for undo/redo.")
+            actionName = NSLocalizedString("RequestNode.newChild.actionName.request", value: "New Request", comment: "Name of the action of creating and adding a new request to a folder. Used for undo/redo.")
         case .folder:
-            actionName = NSLocalizedString("RequestNode.addChild.actionName.folder", value: "Create Folder", comment: "Name of the action of creating and adding a new folder to a folder. Used for undo/redo.")
+            actionName = NSLocalizedString("RequestNode.newChild.actionName.folder", value: "New Folder", comment: "Name of the action of creating and adding a new folder to a folder. Used for undo/redo.")
         }
         document?.undoManager?.setActionName(actionName)
+        return index
     }
 
-    private func insertChildWithoutActionName(_ child: RequestNode, at index: Int?) {
-        if children == nil { children = [] }
-        let index = index ?? children!.endIndex
+    private func insertChild(_ child: RequestNode, at index: Int) {
         child.inheritProperties(from: self)
         children!.insert(child, at: index)
         observer?.requestNode(self, didInsertChildrenAt: IndexSet(integer: index))
-        document?.undoManager?.registerUndo(withTarget: self) { $0.removeChildWithoutActionName(at: index) }
+        document?.undoManager?.registerUndo(withTarget: self) { $0.removeChild(at: index) }
     }
 
-    public func removeChild(at index: Int) {
-        let child = removeChildWithoutActionName(at: index)
+    public func deleteChild(at index: Int) {
+        let child = removeChild(at: index)
         let actionName: String
         switch child.kind {
         case .request:
-            actionName = NSLocalizedString("RequestNode.removeChild.actionName.request", value: "Delete Request", comment: "Name of the action of removing a request from a folder. Used for undo/redo.")
+            actionName = NSLocalizedString("RequestNode.deleteChild.actionName.request", value: "Delete Request", comment: "Name of the action of removing a request from a folder. Used for undo/redo.")
         case .folder:
-            actionName = NSLocalizedString("RequestNode.removeChild.actionName.folder", value: "Delete Folder", comment: "Name of the action of removing a folder from a folder. Used for undo/redo.")
+            actionName = NSLocalizedString("RequestNode.deleteChild.actionName.folder", value: "Delete Folder", comment: "Name of the action of removing a folder from a folder. Used for undo/redo.")
         }
         document?.undoManager?.setActionName(actionName)
     }
 
-    @discardableResult private func removeChildWithoutActionName(at index: Int) -> RequestNode {
+    @discardableResult private func removeChild(at index: Int) -> RequestNode {
         let child = children!.remove(at: index)
         child.unsetInheritedProperties()
         observer?.requestNode(self, didRemoveChildrenAt: IndexSet(integer: index))
-        document?.undoManager?.registerUndo(withTarget: self) { $0.insertChildWithoutActionName(child, at: index) }
+        document?.undoManager?.registerUndo(withTarget: self) { $0.insertChild(child, at: index) }
         return child
     }
 
