@@ -9,18 +9,16 @@ class FolderTableViewController: UITableViewController {
         didSet {
             navigationItem.title = folder.name
             folder.observer = self
-            NotificationCenter.default.addObserver(self, selector: #selector(updateUndoRedoButtons), name: NSNotification.Name.NSUndoManagerCheckpoint, object: undoManager)
         }
     }
 
+    /// Undo button in toolbar.
     @IBOutlet private weak var undoButton: UIBarButtonItem!
+    /// Redo button in toolbar.
     @IBOutlet private weak var redoButton: UIBarButtonItem!
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
+#warning("Embed node creation in table view!!!")
 extension FolderTableViewController {
 
     /// Create a new request.
@@ -55,7 +53,7 @@ extension FolderTableViewController {
         func completion(result: UIAlertController.TextInputResult) {
             switch result {
             case .ok(let name):
-                currentFolder.addChild(kind: kind, name: name)
+                currentFolder.insertChild(RequestNode(kind: kind, name: name), at: nil)
             case .cancel:
                 break
             }
@@ -150,6 +148,16 @@ extension FolderTableViewController {
         updateUndoRedoButtons()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUndoRedoButtons), name: NSNotification.Name.NSUndoManagerCheckpoint, object: undoManager)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let selectedIndexPath = tableView.indexPath(for: sender as! UITableViewCell)!
         let childFolderTableViewController = segue.destination as! FolderTableViewController
@@ -170,6 +178,13 @@ extension FolderTableViewController {
     override var keyCommands: [UIKeyCommand]? {
         let createRequestCommand = UIKeyCommand(input: "n", modifierFlags: .command, action: #selector(createRequest), discoverabilityTitle: NSLocalizedString("FolderTableViewController.keyCommands.createRequestCommand", value: "New Request", comment: "Command title to create a new request."))
         let createFolderCommand = UIKeyCommand(input: "n", modifierFlags: [.command, .shift], action: #selector(createFolder), discoverabilityTitle: NSLocalizedString("FolderTableViewController.keyCommands.folderRequestCommand", value: "New Folder", comment: "Command title to create a new folder."))
-        return [createRequestCommand, createFolderCommand]
+        var keyCommands = [createRequestCommand, createFolderCommand]
+        if undoManager!.canUndo {
+            keyCommands.append(UIKeyCommand(input: "z", modifierFlags: [.command], action: #selector(performUndo), discoverabilityTitle: undoManager!.undoMenuItemTitle))
+        }
+        if undoManager!.canRedo {
+            keyCommands.append(UIKeyCommand(input: "z", modifierFlags: [.command, .shift], action: #selector(performRedo), discoverabilityTitle: undoManager!.redoMenuItemTitle))
+        }
+        return keyCommands
     }
 }

@@ -1,15 +1,15 @@
 import Foundation
 
-/// A class representing either a request or a folder.
+/// A class representing a node in the request tree.
 public final class RequestNode: Codable {
 
-    /// A unique identifier of this node.
+    /// An unique identifier of this node.
     public let id: UUID
-    /// Either a request or a folder.
+    /// Kind of this node.
     public let kind: Kind
     /// Non-empty name of this node.
     public var name: String
-    /// Reference to the parent node.
+    /// Reference to the parent node, if any.
     public private(set) weak var parent: RequestNode?
     /// Reference to the document, if any.
     public internal(set) weak var document: DocumentCore?
@@ -23,7 +23,7 @@ public final class RequestNode: Codable {
     public var url: String?
 
     /// Designated intializer.
-    internal init(kind: Kind, name: String) {
+    public init(kind: Kind, name: String) {
         id = UUID()
         self.kind = kind
         self.name = name
@@ -42,7 +42,7 @@ public final class RequestNode: Codable {
 
 extension RequestNode {
 
-    /// Validate subtree integrity and fix whatever it can. Must be called at least once before start using the subtree.
+    /// Validate subtree integrity and fix whatever it can. Must be called at least once before start using the nodes in the subtree.
     internal func validate() throws {
         guard !name.isEmpty else {
             throw RequestNodeError.emptyName(self)
@@ -69,66 +69,25 @@ extension RequestNode {
             throw RequestNodeError.folderWithURL(self)
         }
         try children?.forEach {
-            $0.parent = self
-            $0.document = document
+            $0.inheritProperties(from: self)
             try $0.validate()
         }
     }
-}
 
-extension RequestNode {
-
-    /// Create a new child and add at the specified index or at the end of the list.
-    public func addChild(kind: Kind, name: String, at index: Int? = nil) {
-        if children == nil { children = [] }
-        addChild(RequestNode(kind: kind, name: name), at: index)
+    /// Set parent node and inherit its properties.
+    private func inheritProperties(from parent: RequestNode) {
+        self.parent = parent
+        document = parent.document
     }
 
-    /// Add a child node at the specified index or at the end of the list.
-    private func addChild(_ child: RequestNode, at index: Int?) {
-        if children == nil { children = [] }
-        document?.undoManager?.beginUndoGrouping()
-        let oldParent = child.parent
-        let oldIndex = oldParent?.removeChild(child)
-        child.parent = self
-        child.document = document
-        let index = index ?? children!.endIndex
-        observer?.requestNodeDidBeginUpdates(self)
-        children!.insert(child, at: index)
-        observer?.requestNode(self, didInsertChildrenAt: IndexSet(integer: index))
-        observer?.requestNodeDidFinishUpdates(self)
-        document?.undoManager?.registerUndo(withTarget: self) {
-            let child = $0.removeChild(at: index)
-            if let parent = oldParent, let index = oldIndex {
-                parent.addChild(child, at: index)
-            }
-        }
-        document?.undoManager?.endUndoGrouping()
-    }
-
-    /// Remove a child and returns the index where it was.
-    private func removeChild(_ child: RequestNode) -> Int? {
-        let foundIndex = children!.firstIndex { $0 === child }
-        guard let index = foundIndex else { return nil }
-        removeChild(at: index)
-        return index
-    }
-
-    /// Remove a child at a specified index.
-    @discardableResult
-    public func removeChild(at index: Int) -> RequestNode {
-        observer?.requestNodeDidBeginUpdates(self)
-        let child = children!.remove(at: index)
-        observer?.requestNode(self, didRemoveChildrenAt: IndexSet(integer: index))
-        observer?.requestNodeDidFinishUpdates(self)
-        document?.undoManager?.registerUndo(withTarget: self) {
-            $0.addChild(child, at: index)
-        }
-        return child
+    /// Unset properties set in `inheritProperties(from:)`.
+    private func unsetInheritedProperties() {
+        parent = nil
+        document = nil
     }
 }
 
-/// Observer of node modifications.
+/// Observer of node modifications and events.
 public protocol RequestNodeObserver: class {
     func requestNodeDidBeginUpdates(_ requestNode: RequestNode)
     func requestNode(_ requestNode: RequestNode, didRemoveChildrenAt indexes: IndexSet)
@@ -153,4 +112,59 @@ public enum RequestNodeError: Error {
     case requestWithChildren(RequestNode)
     case folderWithURL(RequestNode)
     case cantAccessUndo(RequestNode)
+}
+
+// FIXME: - Needs Improvement
+
+extension RequestNode {
+
+    public func insertChild(_ child: RequestNode, at index: Int? = nil) {
+        insertChildWithoutActionName(child, at: index)
+        let actionName: String
+        switch child.kind {
+        case .request:
+            actionName = NSLocalizedString("RequestNode.addChild.actionName.request", value: "Create Request", comment: "Name of the action of creating and adding a new request to a folder. Used for undo/redo.")
+        case .folder:
+            actionName = NSLocalizedString("RequestNode.addChild.actionName.folder", value: "Create Folder", comment: "Name of the action of creating and adding a new folder to a folder. Used for undo/redo.")
+        }
+        document?.undoManager?.setActionName(actionName)
+    }
+
+    private func insertChildWithoutActionName(_ child: RequestNode, at index: Int?) {
+        if children == nil { children = [] }
+        let index = index ?? children!.endIndex
+        child.inheritProperties(from: self)
+        children!.insert(child, at: index)
+        observer?.requestNode(self, didInsertChildrenAt: IndexSet(integer: index))
+        document?.undoManager?.registerUndo(withTarget: self) { $0.removeChildWithoutActionName(at: index) }
+    }
+
+    public func removeChild(at index: Int) {
+        let child = removeChildWithoutActionName(at: index)
+        let actionName: String
+        switch child.kind {
+        case .request:
+            actionName = NSLocalizedString("RequestNode.removeChild.actionName.request", value: "Delete Request", comment: "Name of the action of removing a request from a folder. Used for undo/redo.")
+        case .folder:
+            actionName = NSLocalizedString("RequestNode.removeChild.actionName.folder", value: "Delete Folder", comment: "Name of the action of removing a folder from a folder. Used for undo/redo.")
+        }
+        document?.undoManager?.setActionName(actionName)
+    }
+
+    @discardableResult private func removeChildWithoutActionName(at index: Int) -> RequestNode {
+        let child = children!.remove(at: index)
+        child.unsetInheritedProperties()
+        observer?.requestNode(self, didRemoveChildrenAt: IndexSet(integer: index))
+        document?.undoManager?.registerUndo(withTarget: self) { $0.insertChildWithoutActionName(child, at: index) }
+        return child
+    }
+
+//    public func moveChildren(_ newChildren: [RequestNode], to index: Int?) {
+//        if children == nil { children = [] }
+//        let index = index ?? children!.endIndex
+//        let newChildrenByParentId = Dictionary(grouping: newChildren) { $0.parent!.id }
+//        for (_, children) in newChildrenByParentId {
+//
+//        }
+//    }
 }
