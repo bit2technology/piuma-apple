@@ -24,9 +24,10 @@ class Document: UIDocument {
     }
 
     class func templateURL() throws -> URL {
-        let defaultCore = DocumentCore()
-        let templateURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(defaultCore.rootFolder.name).piuma")
-        try defaultCore.encode().write(to: templateURL)
+        let documentCore = DocumentCore()
+        let defaultDocumentName = NSLocalizedString("Document.templateURL.defaultDocumentName", value: "New Piuma Document", comment: "Default name for a new document. The document is a collection of network requests, usually [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).")
+        let templateURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(defaultDocumentName).piuma")
+        try documentCore.encode().write(to: templateURL)
         return templateURL
     }
 

@@ -24,8 +24,8 @@
 		4B5935A5212E1CF100B22010 /* PiumaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B59358F212E1C7500B22010 /* PiumaCore.framework */; };
 		4B5935B3212ECB5500B22010 /* DocumentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B1212ECB5400B22010 /* DocumentCore.swift */; };
 		4B5935B4212ECB5500B22010 /* DocumentCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B1212ECB5400B22010 /* DocumentCore.swift */; };
-		4B5935B5212ECB5500B22010 /* RequestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* RequestNode.swift */; };
-		4B5935B6212ECB5500B22010 /* RequestNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* RequestNode.swift */; };
+		4B5935B5212ECB5500B22010 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* Request.swift */; };
+		4B5935B6212ECB5500B22010 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B2212ECB5500B22010 /* Request.swift */; };
 		4B5935B8212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
 		4B5935B9212EE76300B22010 /* DocumentCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */; };
 		4B5935BD212EF30800B22010 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */; };
@@ -106,19 +106,19 @@
 		4B593580212E18C500B22010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B593583212E18C500B22010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B593585212E18C500B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B593586212E18C500B22010 /* Piuma_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Piuma_macOS.entitlements; sourceTree = "<group>"; };
 		4B59358F212E1C7500B22010 /* PiumaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PiumaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B593592212E1C7600B22010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5935A0212E1CF100B22010 /* PiumaCoreTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PiumaCoreTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5935AD212E22AA00B22010 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		4B5935B1212ECB5400B22010 /* DocumentCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCore.swift; sourceTree = "<group>"; };
-		4B5935B2212ECB5500B22010 /* RequestNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNode.swift; sourceTree = "<group>"; };
+		4B5935B2212ECB5500B22010 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		4B5935B7212EE76300B22010 /* DocumentCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCoreTests.swift; sourceTree = "<group>"; };
 		4B5935BA212EF30800B22010 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		4B5935BB212EF30800B22010 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		4B5935BC212EF30800B22010 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		4B613C82212DE6E20069C73C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B613C83212DE6EB0069C73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4BBF457421D93BBB00A13F96 /* Piuma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Piuma.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				4B5935B1212ECB5400B22010 /* DocumentCore.swift */,
-				4B5935B2212ECB5500B22010 /* RequestNode.swift */,
+				4B5935B2212ECB5500B22010 /* Request.swift */,
 				4B593592212E1C7600B22010 /* Info.plist */,
 			);
 			path = PiumaCore;
@@ -227,7 +227,7 @@
 				4B593580212E18C500B22010 /* Assets.xcassets */,
 				4B593582212E18C500B22010 /* Main.storyboard */,
 				4B593585212E18C500B22010 /* Info.plist */,
-				4B593586212E18C500B22010 /* Piuma_macOS.entitlements */,
+				4BBF457421D93BBB00A13F96 /* Piuma.entitlements */,
 			);
 			path = "Piuma-macOS";
 			sourceTree = "<group>";
@@ -407,6 +407,11 @@
 					};
 					4B593577212E18C400B22010 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					4B59358E212E1C7500B22010 = {
 						CreatedOnToolsVersion = 10.0;
@@ -508,7 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5935B3212ECB5500B22010 /* DocumentCore.swift in Sources */,
-				4B5935B5212ECB5500B22010 /* RequestNode.swift in Sources */,
+				4B5935B5212ECB5500B22010 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,7 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5935B4212ECB5500B22010 /* DocumentCore.swift in Sources */,
-				4B5935B6212ECB5500B22010 /* RequestNode.swift in Sources */,
+				4B5935B6212ECB5500B22010 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1072,7 +1077,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "Piuma-macOS/Piuma_macOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Piuma-macOS/Piuma.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1103,7 +1108,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma;
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.mac;
 				PRODUCT_NAME = Piuma;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1146,7 +1151,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "Piuma-macOS/Piuma_macOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Piuma-macOS/Piuma.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1170,7 +1175,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma;
+				PRODUCT_BUNDLE_IDENTIFIER = technology.bit2.piuma.mac;
 				PRODUCT_NAME = Piuma;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
