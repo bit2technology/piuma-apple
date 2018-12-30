@@ -17,7 +17,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>technology.bit2.piuma.document.piuma</string>
+				<string>technology.bit2.piuma.document</string>
 			</array>
 		</dict>
 	</array>
@@ -72,7 +72,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>technology.bit2.piuma.document.piuma</string>
+			<string>technology.bit2.piuma.document</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
